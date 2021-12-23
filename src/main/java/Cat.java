@@ -3,8 +3,11 @@ public class Cat implements Cloneable
     private double originWeight;
     private double weight;
     private double amountOfFeed;
+
+    // урок 6
     private CatColor catColor;
 
+    // урок 4
     private static final double MIN_WEIGHT = 1000.0;
     private static final double MAX_WEIGHT = 9000.0;
     public static final int EYES_COUNT = 2;
@@ -28,6 +31,7 @@ public class Cat implements Cloneable
     {
         if (isAlive()) {
             weight = weight - 1;
+            clearDeadCats();
             System.out.println("Meow");
         } else {
             System.out.println("Cat is dead!");
@@ -39,6 +43,7 @@ public class Cat implements Cloneable
         if (isAlive()) {
             weight = weight + amount;
             amountOfFeed = amountOfFeed + amount;
+            clearDeadCats();
         } else {
             System.out.println("Cat is dead!");
         }
@@ -48,6 +53,7 @@ public class Cat implements Cloneable
     {
         if (isAlive()) {
             weight = weight + amount;
+            clearDeadCats();
         } else {
             System.out.println("Cat is dead!");
         }
@@ -81,6 +87,7 @@ public class Cat implements Cloneable
     public void pee() {
         if (isAlive()) {
             weight = weight - 1000 * Math.random();
+            clearDeadCats();
             System.out.println("I just make a pee");
         } else {
             System.out.println("Cat is dead!");
@@ -103,8 +110,15 @@ public class Cat implements Cloneable
         this.catColor = catColor;
     }
 
+    // урок 7
     @Override
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
+    }
+
+    private void clearDeadCats() {
+        if (!isAlive()) {
+            count--;
+        }
     }
 }
