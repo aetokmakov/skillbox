@@ -12,5 +12,15 @@
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
     </properties>
-    
+
+    <dependencies>
+        <dependency>
+            <groupId>com.aetokmakov</groupId>
+            <artifactId>airport</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/airport-1.0.1.jar</systemPath>
+        </dependency>
+    </dependencies>
+
 </project>
